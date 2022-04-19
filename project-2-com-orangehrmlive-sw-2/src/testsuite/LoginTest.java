@@ -30,15 +30,17 @@ public class LoginTest extends BaseTest {
         WebElement loginLink = driver.findElement(By.id("btnLogin"));
         loginLink.click();
 
-        String expectedMessage = "Welcome mahesh";
+        String expectedMessage = "Welcome";
         WebElement actualMessage = driver.findElement(By.xpath("//a[@id='welcome']"));
         String actualResult = actualMessage.getText();
+        System.out.println(actualMessage.getText());
+        String substr = actualResult.substring(0,7);
 
         //Verifying the ‘Welcome’ text is display
-        Assert.assertEquals(expectedMessage, actualResult);
+       Assert.assertEquals(expectedMessage, substr);
     }
     @After
     public void tearDown() {
-        closeBrowser();
+       closeBrowser();
     }
 }
